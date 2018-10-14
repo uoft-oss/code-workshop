@@ -1,0 +1,11 @@
+{
+  "name": "oss-code-workshop",
+  "version": "1.0.0",
+  "description": "Server and Client for OSS code workshop",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Kalindu De Costa",
+  "license": "MIT"
+}
