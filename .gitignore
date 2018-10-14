@@ -72,6 +72,11 @@ typings/
 # Serverless directories
 .serverless
 
-#VS code
+# VS code
 .vscode
 .vscode*
+
+# Project specific
+.env
+.env*
+
