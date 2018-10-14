@@ -1,0 +1,13 @@
+extends layout.pug
+
+block content
+    h1 login / register
+    form.box.login(action='/signup', method='post')
+        fieldset.boxBody
+            label Email
+            input(tabindex='1', placeholder='Enter Your Email Address', name='email', type='email', required)
+            label Password
+            input(tabindex='2', name='password', type='password', required)
+        footer
+            input.btnLogin(value='Login', onclick="parent.location='/login'", type='button')
+            input.btnLogin(value='SignUp', tabindex='1', type='submit')

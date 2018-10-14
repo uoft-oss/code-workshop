@@ -12,30 +12,59 @@ var passport = require('passport');
 var flash    = require('connect-flash');
 var path = require('path');
 var fs = require('fs');
-var http = require('http')
-var server = http.createServer(app)
+var http = require('http');
+var server = http.createServer(app);
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var session = require("express-session");
 
 
-mongoose.connect(config.uri); 
+mongoose.connect(config.uri, { useNewUrlParser: true }); 
 
 require('./config/passport')(passport); 
 
-app.configure(function() {
+// configureation
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+app.use(express.static(path.join(__dirname, 'static')));
+app.use(session({
+    secret: 'oss-workshop',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+})); 
+app.use(passport.initialize());
+app.use(passport.session()); 
+app.use(flash()); 
 
-	app.use(express.cookieParser());
-	app.use(express.bodyParser()); 
-	app.use(express.static(path.join(__dirname, 'public')));
-	app.set('views', __dirname + '/views');
-	app.engine('html', require('ejs').renderFile);
-	app.use(express.session({ secret: 'knoldus' })); 
-	app.use(express.bodyParser({uploadDir:'/images'}));
-	app.use(passport.initialize());
-	app.use(passport.session()); 
-	app.use(flash()); 
+// pug
+app.set('view engine', 'pug');
+app.set("views", path.join(__dirname, "template"));
 
+app.get("/", function(req, res){
+    res.render("index", {data: 'data'});
 });
 
+app.get('/login', function(request, response) {
+    response.render('login.html', { message: request.flash('error') });
+});
 
+app.get('/signup', function(request, response) {
+    response.render('signup.html', { message: request.flash('signuperror') });
+}); 
+
+app.post('/login', passport.authenticate('login', {
+    successRedirect : '/', 
+    failureRedirect : '/', 
+    failureFlash : true
+}));
+
+app.post('/signup', passport.authenticate('signup', {
+    successRedirect : '/',
+    failureRedirect : '/', 
+    failureFlash : true 
+}));
 
 server.listen(port);
 console.log('Listening  to  port ' + port);
