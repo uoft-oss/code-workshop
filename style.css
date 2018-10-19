@@ -4,8 +4,8 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Lato', sans-serif;
-    background: url("media/carrot.png");
-    background-blend-mode: lighten;
+    background: url("media/carrot.png"); /*https://www.flaticon.com/free-icon/carrot_1159055#term=carrot&page=1&position=4 */
+    background-blend-mode: lighten; 
 }
 
 .header {
