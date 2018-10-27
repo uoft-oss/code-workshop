@@ -5,8 +5,7 @@ body {
     margin: 0;
     font-family: 'Lato', sans-serif;
     background: url("media/carrot.png"); /*https://www.flaticon.com/free-icon/carrot_1159055#term=carrot&page=1&position=4 */
-    background: url("media/carrot.png");
-    -webkit-animation: slide 20s linear infinite; 
+    -webkit-animation: slide 40s linear infinite; 
 }
 
 @-webkit-keyframes slide {
@@ -45,7 +44,7 @@ body {
 }
 
 #home {
-    transition-duration: 0.2s;
+    transition-duration: 0.3s;
     width: 100%;
     height: 85vh;
     background: url("media/banner.jpeg");
@@ -87,7 +86,7 @@ body {
     width: auto;
     margin: 10px;
     border-bottom: 1px solid gray;
-    color: rgb(80, 80, 80);
+    color: dimgray;
 }
 
 .nav-item:hover{
@@ -100,7 +99,7 @@ body {
 
 
 .nav-item a, .name a {
-    color: rgb(80, 80, 80);
+    color: dimgray;
     text-decoration: none;
 }
 
@@ -115,6 +114,16 @@ body {
     color: black;
 }
 
+.title {
+    font-size: 20pt;
+    margin-bottom: 10px;
+    color: bisque;
+    background: black;
+    padding: 10px;
+    width: auto;
+    border-radius: 2px;
+}
+
 #about {
     width: 55%;
     height: auto;
@@ -122,19 +131,9 @@ body {
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
-    background: rgb(5, 6, 15);
+    background: black;
     padding: 40px;
     border-radius: 5px;
-}
-
-.title {
-    font-size: 20pt;
-    margin-bottom: 10px;
-    color: rgb(245, 227, 221);
-    background: rgb(6, 4, 17);
-    padding: 10px;
-    width: auto;
-    border-radius: 2px;
 }
 
 .about-image {
@@ -149,7 +148,7 @@ body {
     margin-left: 100px;
     height: 80%;
     word-wrap: break-word;
-    color: rgb(255, 255, 255);
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -158,14 +157,15 @@ body {
 }
 
 .about-info .title {
-    background: rgb(245, 227, 221);
-    color: rgb(6, 4, 17);
+    background: lightgray;
+    color: black;
 }
 
 .footer {
     margin-top: 25px;
     width: 100%;
     text-align: center;
+    padding-bottom: 10px;
 }
 
 #achievements {
@@ -185,14 +185,13 @@ body {
 .ach-title {
     margin-left: 40px;
     text-decoration: none;
-    color: rgb(105, 105, 105);
+    color: gray;
     font-size: 25pt;
 }
 
 .achievement img {
     width: 120px;
     height: auto;
-    background: red;
     background-size: 100% auto;
 }
 
